@@ -7,11 +7,9 @@ solve1DHeat:{[u0;alpha;L;T;Nx;Nt]
 
     {[r;u;i]
         .ascii.home[];
-        uOld:u;
-        uNew:uOld+r*(-2*uOld) + sum (prev;next)@\:uOld;
-        uNew:@[uNew;0;:;1f];
-        uNew:@[uNew;-1+count uNew;:;0f];
-        u:uNew;
+        u:u+r*(-2*u) + sum (prev;next)@\:u;
+        u:@[u;0;:;1f];
+        u:@[u;-1+count u;:;0f];
         .ascii.showColour[enlist u];
         u
     }[r]/[u;1+til Nt-1];
@@ -25,5 +23,5 @@ Nx:50;
 Nt:1000;
 
 u0:Nx#0;
-.ascii.clear[]
+.ascii.clear[];
 solve1DHeat[u0;alpha;L;T;Nx;Nt];
