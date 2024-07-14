@@ -2,8 +2,8 @@
 \l ascii.q
 // Constants
 / system "P 10";
-Nx:50;
-Ny:50;
+Nx:100;
+Ny:100;
 Lx:1;
 Ly:1;
 dx:`real$Lx%Nx; dy:`real$Ly%Ny;
@@ -20,15 +20,15 @@ rho[::;a+til a:"j"$Ny%2]:rho2;
 rho+:`real$(rho2-rho1)*0.005*sin[2*(`real$3.1415926535)*(til Nx)%Nx-1];
 
 / // Working
-/ up:{1 rotate x}; // [2:, 1:-1]
-/ down:{-1 rotate x}; // [:-2, 1:-1]
-/ left:{flip 1 rotate flip x}; // [1:-1, 2:]
-/ right:{flip -1 rotate flip x}; // [1:-1, :-2]
+up:{1 rotate x}; // [2:, 1:-1]
+down:{-1 rotate x}; // [:-2, 1:-1]
+left:{flip 1 rotate flip x}; // [1:-1, 2:]
+right:{flip -1 rotate flip x}; // [1:-1, :-2]
 
-up:{1_x,enlist first x}; // [2:, 1:-1]
-down:{(enlist last x),-1_x}; // [:-2, 1:-1]
-left:{flip y flip x}[;up]; // [1:-1, 2:]
-right:{flip y flip x}[;down]; // [1:-1, :-2]
+/ up:{1_x,enlist first x}; // [2:, 1:-1]
+/ down:{(enlist last x),-1_x}; // [:-2, 1:-1]
+/ left:{flip y flip x}[;up]; // [1:-1, 2:]
+/ right:{flip y flip x}[;down]; // [1:-1, :-2]
 
 
 .ascii.clear[];
@@ -50,8 +50,8 @@ do["i"$T%dt;
     v-:`real$dt*(left[p]-right[p])%2*dy*rho;
 
     rho-:`real$dt*((u*up[rho]-down[rho])%2*dx)+v*(left[rho]-right[rho])%2*dy;
-    if[0="i"$mod[t%dt;1000];
+    if[0="i"$mod[t%dt;200];
         .ascii.clear[];
-        .ascii.showColour[flip rho];
+        .ascii.showRBRel[flip rho];
         0N!.count.i+:1];
     t+:dt]
