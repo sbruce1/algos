@@ -4,8 +4,9 @@ home:{-1 "\033[H"};
 block:{"\033[48;5;",string[x],"m \033[0m"};
 colours: 21 27 33 39 45 51 50 49 48 47 46 82 118 154 190 226 220 214 208 202 196;
 greys:reverse 255 - til 24;
-num2block:{[x;y] x "j"$y*-1+count x};
-showMatrix:{-1 each raze@/:(block@/:)each x};
+/ num2block:{[x;y] x "j"$(y%(max/)y)*-1+count x};
+num2block:{[x;y] x "j"$((y-(min/)y)%(max/)y-(min/)y)*-1+count x};
+showMatrix:{-1 each raze@/:(block@/:)each x;};
 showGrey:{showMatrix num2block[greys;x]};
 showColour:{showMatrix num2block[colours;x]};
 \d .

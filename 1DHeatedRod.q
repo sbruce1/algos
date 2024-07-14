@@ -4,6 +4,8 @@ solve1DHeat:{[u0;alpha;L;T;Nx;Nt]
     dt:T%Nt-1;  
     r:alpha*dt%dx*dx;  
     u:u0;
+    .ascii.showColour[enlist u];
+    system "sleep 0.1";
 
     {[r;u;i]
         .ascii.home[];
@@ -11,6 +13,8 @@ solve1DHeat:{[u0;alpha;L;T;Nx;Nt]
         u:@[u;0;:;1f];
         u:@[u;-1+count u;:;0f];
         .ascii.showColour[enlist u];
+        system "sleep 0.1";
+
         u
     }[r]/[u;1+til Nt-1];
     u
@@ -18,10 +22,10 @@ solve1DHeat:{[u0;alpha;L;T;Nx;Nt]
 
 alpha:0.1; 
 L:1.0; 
-T:1; 
+T:5; 
 Nx:50; 
-Nt:1000;
+Nt:5000;
 
-u0:Nx#0;
+u0:Nx#0.;
 .ascii.clear[];
 solve1DHeat[u0;alpha;L;T;Nx;Nt];
