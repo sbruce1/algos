@@ -20,15 +20,15 @@ rho[::;a+til a:"j"$Ny%2]:rho2;
 rho+:`real$(rho2-rho1)*0.005*sin[2*(`real$3.1415926535)*(til Nx)%Nx-1];
 
 / // Working
-up:{1 rotate x}; // [2:, 1:-1]
-down:{-1 rotate x}; // [:-2, 1:-1]
-left:{flip 1 rotate flip x}; // [1:-1, 2:]
-right:{flip -1 rotate flip x}; // [1:-1, :-2]
+/ up:{1 rotate x}; // [2:, 1:-1]
+/ down:{-1 rotate x}; // [:-2, 1:-1]
+/ left:{flip 1 rotate flip x}; // [1:-1, 2:]
+/ right:{flip -1 rotate flip x}; // [1:-1, :-2]
 
-/ up:{1_x,enlist first x}; // [2:, 1:-1]
-/ down:{(enlist last x),-1_x}; // [:-2, 1:-1]
-/ left:{flip y flip x}[;up]; // [1:-1, 2:]
-/ right:{flip y flip x}[;down]; // [1:-1, :-2]
+up:{1_x,enlist first x}; // [2:, 1:-1]
+down:{(enlist last x),-1_x}; // [:-2, 1:-1]
+left:{flip y flip x}[;up]; // [1:-1, 2:]
+right:{flip y flip x}[;down]; // [1:-1, :-2]
 
 
 .ascii.clear[];
