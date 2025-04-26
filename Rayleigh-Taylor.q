@@ -42,7 +42,7 @@ do["i"$T%dt;
     v-:`real$dt*(left[p]-right[p])%2*dy*rho;
 
     rho-:`real$dt*((u*up[rho]-down[rho])%2*dx)+v*(left[rho]-right[rho])%2*dy;
-    if[0="i"$mod[t%dt;100];
+    if[0="i"$mod[div[t;dt];100];
         if[t>1;.plt.hmupd[f;flip rho]];
         0N!string[t],"/",string[T]];
     t+:dt];
