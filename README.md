@@ -1,6 +1,6 @@
 # algos
 
-There are some awesome algorithms out there that produce incredible visualisations. This repo deals with a number of algorithms in Q, solves them, and produces an ASCII (ANSI) output. Both a snapshot visualisation will be produced and animations.
+There are some awesome algorithms out there that produce incredible visualisations. This repo deals with a number of algorithms in Q, solves them, and plots them using my brief wrapper of [GNU Plot](https://github.com/sbruce1/q-plotter)  
 
 ## Algorithm Shortlist
 
@@ -14,8 +14,8 @@ This is the shortlist of algorithms I want to solve and create animations for, o
 - [Kuramoto–Sivashinsky Equation](https://en.wikipedia.org/wiki/Kuramoto%E2%80%93Sivashinsky_equation)
 - [Swift Hohenberg Equation](https://en.wikipedia.org/wiki/Swift%E2%80%93Hohenberg_equation)
 
-## ANSI Visualisations
+## Visualisations
 
 ### Rayleigh-Taylor Instability
 
-![](./src/Rayleigh-Taylor.PNG)
+![](./src/Rayleigh-Taylor.gif)

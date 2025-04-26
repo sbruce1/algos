@@ -1,14 +1,13 @@
 // Rayleigh-Taylor Instability
-\l ascii.q
+\l plt.q
 // Constants
-/ system "P 10";
 Nx:100;
 Ny:100;
 Lx:1;
 Ly:1;
 dx:`real$Lx%Nx; dy:`real$Ly%Ny;
 dt:0.0001e;
-T:5; 
+T:10; 
 g:9.81e;
 rho1:1.0e;
 rho2:1.1e;
@@ -19,21 +18,14 @@ rho:(Nx;Ny)#1e;
 rho[::;a+til a:"j"$Ny%2]:rho2;
 rho+:`real$(rho2-rho1)*0.005*sin[2*(`real$3.1415926535)*(til Nx)%Nx-1];
 
-/ // Working
-/ up:{1 rotate x}; // [2:, 1:-1]
-/ down:{-1 rotate x}; // [:-2, 1:-1]
-/ left:{flip 1 rotate flip x}; // [1:-1, 2:]
-/ right:{flip -1 rotate flip x}; // [1:-1, :-2]
-
-up:{1_x,enlist first x}; // [2:, 1:-1]
-down:{(enlist last x),-1_x}; // [:-2, 1:-1]
-left:{flip y flip x}[;up]; // [1:-1, 2:]
-right:{flip y flip x}[;down]; // [1:-1, :-2]
+up:{1_x,enlist first x};
+down:{(enlist last x),-1_x};
+left:{y@/:x}[;up];
+right:{y@/:x}[;down];
 
 
-.ascii.clear[];
-.ascii.showColour[flip rho];
-.count.i:0;
+f:.plt.gifhm[1];
+.plt.hmupd[f;flip rho];
 t:0;
 
 do["i"$T%dt;
@@ -50,8 +42,10 @@ do["i"$T%dt;
     v-:`real$dt*(left[p]-right[p])%2*dy*rho;
 
     rho-:`real$dt*((u*up[rho]-down[rho])%2*dx)+v*(left[rho]-right[rho])%2*dy;
-    if[0="i"$mod[t%dt;200];
-        .ascii.clear[];
-        .ascii.showRBRel[flip rho];
-        0N!.count.i+:1];
-    t+:dt]
+    if[0="i"$mod[t%dt;100];
+        if[t>1;.plt.hmupd[f;flip rho]];
+        0N!string[t],"/",string[T]];
+    t+:dt];
+
+.plt.close[f];
+exit 0;
