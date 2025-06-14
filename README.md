@@ -8,6 +8,7 @@ This is the shortlist of algorithms I want to solve and create animations for, o
 
 - [1D Heated Rod](https://en.wikipedia.org/wiki/Heat_equation) (just to get into the swing of things again) **[Done](1DHeatedRod.q)**
 - [Rayleigh–Taylor Instability](https://en.wikipedia.org/wiki/Rayleigh%E2%80%93Taylor_instability) **[Done](Rayleigh-Taylor.q)**
+- [Smooth Life](https://arxiv.org/abs/1111.1567) **[Done](smoothlife.q)** (some cool failures in [smoothlife failures](./src/smoothlifeFailures/))
 - Top Down [Rayleigh–Bénard Convection](https://en.wikipedia.org/wiki/Rayleigh%E2%80%93B%C3%A9nard_convection) (unsure if can fully 2D)
 - 2D [Navier Stokes](https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations) for a variety of starting conditions
 - [Cahn-Hilliard Equation](https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation)
@@ -19,3 +20,7 @@ This is the shortlist of algorithms I want to solve and create animations for, o
 ### Rayleigh-Taylor Instability
 
 ![](./src/Rayleigh-Taylor.gif)
+
+### Smooth Life
+
+![](./src/SmoothLife.gif)

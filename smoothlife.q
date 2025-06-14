@@ -8,11 +8,12 @@ yy:reverse flip xx;
 
 // SmoothLife
 // Constants
-b1:0.278;b2:0.365;d1:0.267;d2:0.445;an:0.028;am:0.147; // paper
-/ b1:0.257; b2:0.336;d1:0.365; d2:0.549;am:0.028; an:0.147; // alternatives
+/ b1:0.278;b2:0.365;d1:0.267;d2:0.445;an:0.028;am:0.147; // paper
+b1:0.257; b2:0.336;d1:0.365; d2:0.549;am:0.028; an:0.147; // alternatives
 
-/ ra:3*ri:1;
-ra:6*ri:2;
+/ ra:3*ri:2;
+ra:3*ri:3;
+/ ra:6*ri:2;
 / dt:0.1;
 dt:0.05;
 // Sigmoids
